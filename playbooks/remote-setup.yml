@@ -6,15 +6,16 @@
     log_dir: "/var/log/"
     ansible_os_family: "Debian"
     home_dir: "/var/www/lgsp/"
-    downloads_dir: "/var/www/lgsp/downloads"
-    products_dir: "/var/www/lgsp/products"
-    services_dir: "/var/www/lgsp/services"
-
-    ei_home: "/var/www/lgsp/products/wso2ei-6.3.0/"
-    am_home: "/var/www/lgsp/products/wso2am-2.5.0/"
-    is_home: "/var/www/lgsp/products/wso2is-5.6.0/"
-    as_home: "/var/www/lgsp/products/product-as-5.3.0/"
-    # WSO2 Products
+    downloads_dir: "{{home_dir}}downloads/"
+    products_dir: "{{home_dir}}products/"
+    services_dir: "{{home_dir}}services/"
+    
+    # WSO2 Products install home
+    ei_home: "{{products_dir}}wso2ei-6.3.0/"
+    am_home: "{{products_dir}}wso2am-2.5.0/"
+    is_home: "{{products_dir}}wso2is-5.6.0/"
+    as_home: "{{products_dir}}product-as-5.3.0/"
+    # WSO2 Products version
     ei_version: "6.3.0"
     am_version: "2.5.0"
     is_version: "5.6.0"
@@ -26,17 +27,27 @@
     JRE_HOME: "${JAVA_HOME}"
 
   gather_facts: no
+  remote_user: root
   become: true
 #  connection: local
   tasks:
   roles:
 #    - mysql
-    - local-setup
-    - configure
+#    - local-setup
+#    - configure
+
+#    - setup-is
+#    - config-is
+#    - setup-ei
+#    - config-ei
+#    - setup-am
+#    - config-am
 #    - supervisord
   environment:
     EI_HOME: "{{ ei_home }}"
     AM_HOME: "{{ am_home }}"
     IS_HOME: "{{ is_home }}"
-    AM_HOME: "{{ am_home }}"
+    BPS_HOME: "{{ ei_home }}/wso2/business-process/"
+    BROKER_HOME: "{{ ei_home }}/wso2/broker/"
+    ANALYTIC_HOME: "{{ ei_home }}/wso2/analytics/"
   handlers:

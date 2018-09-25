@@ -4,12 +4,12 @@
     dest: "{{ services_dir }}/wso2.{{ item.id }}.service.sh"
     mode: 0777
   with_items:
-    - {name: 'WSO2 Identity Server (IS)', id: 'is', script: "{{ is_home }}/bin/wso2server.sh", portOffset: "-DportOffset=5 "}
-    - {name: 'WSO2 Enterprise Integrator (EI)', id: 'ei', script: "{{ ei_home }}/bin/integrator.sh", portOffset: ""}
-    - {name: 'WSO2 API Management (AM)', id: 'am', script: "{{ am_home }}/bin/wso2server.sh", portOffset: "-DportOffset=4 "}
-    - {name: 'WSO2 Business Process Server (BPS)', id: 'bps', script: "{{ ei_home }}/wso2/business-process/bin/wso2server.sh", portOffset: ""}
-    - {name: 'WSO2 Analystic Server (AS)', id: 'analystic', script: "{{ ei_home }}/wso2/analytics/bin/wso2server.sh", portOffset: ""}
-    - {name: 'WSO2 Message Broker', id: 'message-broker', script: "{{ ei_home }}/wso2/broker/bin/wso2server.sh", portOffset: ""}
+    - {home: "{{ is_home }}", name: 'WSO2 Identity Server (IS)', id: 'is', script: "{{ is_home }}/bin/wso2server.sh", portOffset: "-DportOffset=5 "}
+    - {home: "{{ ei_home }}", name: 'WSO2 Enterprise Integrator (EI)', id: 'ei', script: "{{ ei_home }}/bin/integrator.sh", portOffset: ""}
+    - {home: "{{ am_home }}", name: 'WSO2 API Management (AM)', id: 'am', script: "{{ am_home }}/bin/wso2server.sh", portOffset: "-DportOffset=4 "}
+    - {home: "{{ bps_home }}", name: 'WSO2 Business Process Server (BPS)', id: 'bps', script: "{{ ei_home }}/wso2/business-process/bin/wso2server.sh", portOffset: ""}
+    - {home: "{{ analystic_home }}", name: 'WSO2 Analystic Server (AS)', id: 'analystic', script: "{{ ei_home }}/wso2/analytics/bin/wso2server.sh", portOffset: ""}
+    - {home: "{{ message-broker_home }}", name: 'WSO2 Message Broker', id: 'message-broker', script: "{{ ei_home }}/wso2/broker/bin/wso2server.sh", portOffset: ""}
 
 - name: Create symbolic link 
   file:
