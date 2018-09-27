@@ -1,7 +1,7 @@
 ---
 
-- name: A Playbook that provisioning lgsp on 192.168.1.200 machine
-  hosts: 192.168.1.200
+- name: A Playbook that provisioning lgsp on 192.168.1.201 machine
+  hosts: 192.168.1.201
   vars:
     log_dir: "/var/log/"
     ansible_os_family: "Debian"
@@ -36,7 +36,7 @@
 #    - local-setup
 #    - configure
 
-#    - setup-is
+    - setup-is
 #    - config-is
 #    - setup-ei
 #    - config-ei

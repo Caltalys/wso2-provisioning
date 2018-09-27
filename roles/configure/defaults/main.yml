@@ -8,7 +8,7 @@ userstore_jndi: "jdbc/WSO2UMDB"
 userstore_connection_string: "jdbc:mysql://localhost:3306/LGSP-userstore?characterEncoding=UTF-8&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"
 userstore_user: ""
 userstore_pass: ""
-userstore_driver_class: "com.mysql.cj.jdbc.Driver"
+Fuserstore_driver_class: "com.mysql.cj.jdbc.Driver"
 
 identity_dsname: "WSO2_IDENTITY_DB"
 identity_jndi: "jdbc/WSO2_IDENTITY_DB"
